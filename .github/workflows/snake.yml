@@ -53,5 +53,6 @@ jobs:
         with:
           target_branch: output
           build_dir: .
+          allow_empty_commit: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
