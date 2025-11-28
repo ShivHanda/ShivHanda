@@ -1,54 +1,55 @@
 # -----------------------------------------------------------
-# FINAL VERSION: Snake Animation Workflow
-# Optimized for Full Contribution Graph Retrieval (uses svg-only)
+# CUSTOM MERGE SOLUTION: snake.yml
+# Merges real contribution data (from GitHub API) with fake data (from Python script)
 # -----------------------------------------------------------
 
-name: Generate Snake Contribution
+name: Generate Snake - Custom Merge
 
 on:
   schedule:
-      # Runs every 6 hours
     - cron: "0 */6 * * *"
-  # Allows manual triggering from the Actions tab
   workflow_dispatch:
 
 jobs:
-  generate:
+  merge_graph:
     runs-on: ubuntu-latest
-    
-    # CRITICAL: Grant the token write permission for pushing the generated file
+    # Grant the token write permission for pushing the generated file
     permissions:
       contents: write 
 
     steps:
-
-      # Step 1: Checks out the repository code
-      - name: Checkout repository
+      - name: 1. Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Generate snake.svg using the svg-only action (better data retrieval)
-      - name: Generate snake.svg
-        # Using the svg-only variant which you noted retrieved more data initially
+      # --- SETUP: Install Python and Dependencies ---
+      - name: 2. Setup Python and Dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install Python SVG Library
+        run: pip install beautifulsoup4
+
+      # --- GENERATE: Get Real Data (Base SVG) ---
+      - name: 3. Generate Base snake.svg (Real Data)
         uses: Platane/snk/svg-only@v3
         with:
-          # Your GitHub username
           github_user_name: ShivHanda
-          # Define the output path and set the palette (optional, remove for testing)
-          outputs: dist/github-contribution-grid-snake.svg?palette=github-dark
-        
-        # CRITICAL: Pass the GITHUB_TOKEN here to authenticate the API call 
-        # to retrieve the full, accurate 365-day contribution history.
-        env: 
+          # Generate a simple SVG file for the script to read
+          outputs: dist/snake_base.svg
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      # --- MERGE: Run Custom Script ---
+      - name: 4. Inject Fake Commits into SVG
+        # This runs the script created in Step 2
+        run: python ./.github/scripts/merge_commits.py
 
-      # Step 3: Push the generated SVG file to the dedicated 'output' branch
-      - name: Push snake.svg to output branch
-        # This action handles committing and pushing the files in the 'dist' directory
+      # --- PUSH: Upload Final Merged SVG ---
+      - name: 5. Push Merged SVG to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          # The output branch to store the generated file
+          # The script saves the final file to this location:
           target_branch: output
-          # The directory containing the generated file
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
