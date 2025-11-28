@@ -2,7 +2,12 @@
 I'm Shivansh Handa<br>
 Hailing from the Himalayas<br>
 On a quest to master every technology, one frontier at a time<br>
+<br>
 
+What I do
+* Data Science explorer working on real-world problems 🧠📊
+* Experimenting with AI, automation, and analytics ⚙️🤖
+* Always building, always learning 🔥
 ### My Tools 
 ###
 
@@ -37,6 +42,7 @@ On a quest to master every technology, one frontier at a time<br>
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="30" alt="tailwindcss logo"  />
 </div>
+
 
 <!--
 **ShivHanda/ShivHanda** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
