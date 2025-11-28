@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 # --- Configuration ---
 # FIX: The file name is correctly set to 'commits.json'
 COMMITS_FILE = './.github/data/commits.json' 
-BASE_SVG_PATH = './dist/snake_base.svg'
-FINAL_SVG_PATH = './dist/github-contribution-grid-snake.svg'
+BASE_SVG_PATH = './snake_base.svg'
+FINAL_SVG_PATH = './github-contribution-grid-snake.svg'
 CONTRIBUTION_LEVEL_2_COLOR = '#0e4429' # Dark Green
 GITHUB_GRAPH_DAYS = 365 # GitHub's graph length
 
