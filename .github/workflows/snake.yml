@@ -39,7 +39,7 @@ jobs:
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ShivHanda
-          outputs: dist/snake_base.svg
+          outputs: snake_base.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
@@ -52,6 +52,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
-          build_dir: dist
+          build_dir: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
