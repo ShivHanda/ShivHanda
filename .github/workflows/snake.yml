@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
-# CUSTOM MERGE SOLUTION: snake.yml
-# Merges real contribution data (from GitHub API) with fake data (from Python script)
+# FINAL CORRECTED WORKFLOW: snake.yml
+# Ensures directory is created and dependencies are installed correctly.
 # -----------------------------------------------------------
 
 name: Generate Snake - Custom Merge
@@ -13,7 +13,6 @@ on:
 jobs:
   merge_graph:
     runs-on: ubuntu-latest
-    # Grant the token write permission for pushing the generated file
     permissions:
       contents: write 
 
@@ -21,11 +20,17 @@ jobs:
       - name: 1. Checkout repository
         uses: actions/checkout@v4
 
+      # CRITICAL FIX: Ensure the output directory exists
+      - name: 1.5. Create Output Directory
+        run: mkdir -p dist
+
       # --- SETUP: Install Python and Dependencies ---
-      - name: 2. Setup Python and Dependencies
+      - name: 2. Setup Python Environment and Install Library
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      
+      # FIX: Install BeautifulSoup after setup
       - name: Install Python SVG Library
         run: pip install beautifulsoup4
 
@@ -34,21 +39,18 @@ jobs:
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ShivHanda
-          # Generate a simple SVG file for the script to read
           outputs: dist/snake_base.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       # --- MERGE: Run Custom Script ---
       - name: 4. Inject Fake Commits into SVG
-        # This runs the script created in Step 2
         run: python ./.github/scripts/merge_commits.py
 
       # --- PUSH: Upload Final Merged SVG ---
       - name: 5. Push Merged SVG to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          # The script saves the final file to this location:
           target_branch: output
           build_dir: dist
         env:
