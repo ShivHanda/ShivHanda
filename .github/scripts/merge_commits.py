@@ -3,7 +3,7 @@ import re
 from datetime import datetime, timedelta
 
 # --- Configuration ---
-FAKE_COMMITS_FILE = './.github/data/fake_commits.json'
+COMMITS_FILE = './.github/data/commits.json'
 BASE_SVG_PATH = './dist/snake_base.svg'
 FINAL_SVG_PATH = './dist/github-contribution-grid-snake.svg'
 CONTRIBUTION_LEVEL_2_COLOR = '#0e4429' # Dark Green
@@ -11,7 +11,7 @@ GITHUB_GRAPH_DAYS = 365 # GitHub's graph length
 
 def get_target_dates():
     """Load the list of dates for the back-dated commits."""
-    with open(FAKE_COMMITS_FILE, 'r') as f:
+    with open(COMMITS_FILE, 'r') as f:
         return [datetime.strptime(d, '%Y-%m-%d').date() for d in json.load(f)]
 
 def get_graph_start_date():
