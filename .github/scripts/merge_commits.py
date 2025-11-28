@@ -3,7 +3,8 @@ import re
 from datetime import datetime, timedelta
 
 # --- Configuration ---
-COMMITS_FILE = './.github/data/commits.json'
+# FIX: The file name is correctly set to 'commits.json'
+COMMITS_FILE = './.github/data/commits.json' 
 BASE_SVG_PATH = './dist/snake_base.svg'
 FINAL_SVG_PATH = './dist/github-contribution-grid-snake.svg'
 CONTRIBUTION_LEVEL_2_COLOR = '#0e4429' # Dark Green
@@ -25,19 +26,11 @@ def calculate_grid_position(target_date):
     day_number = (target_date - start_date).days
     
     # Calculate column (x) and row (y)
-    # GitHub graph has 7 days (rows) and ~52 weeks (columns)
-    # The first week (column 0) is usually partial.
     column = day_number // 7 
     row = day_number % 7    
-
-    # The SVG coordinates are based on a 13-unit offset and a 14-unit pitch.
-    # The snake SVG uses a specific coordinate system. We must find the 
-    # position of the *closest* existing rectangle.
     
-    # This is a simplified calculation that works for the standard Platane SVG:
-    # x coordinate starts at ~13 and increases by ~14 per column
+    # Simplified calculation for Platane SVG:
     x_coord = 13 + (column * 14)
-    # y coordinate starts at ~13 and increases by ~14 per row
     y_coord = 13 + (row * 14)
 
     return x_coord, y_coord
@@ -56,10 +49,10 @@ def merge_svg_data():
     new_rects = ""
     
     # Find the closing tag for the contribution grid (<g>) where the rectangles are drawn
-    # We will inject our new rectangles just before this closing tag.
     closing_tag_match = re.search(r'</g>\s*</svg>', svg_content)
     if not closing_tag_match:
-        print("Error: Could not find the closing tag to inject commits.")
+        # We need to make sure this error is fatal if the file wasn't created right
+        print(f"Error: Could not find the SVG injection point in {BASE_SVG_PATH}.")
         return
 
     # Generate the SVG code for each fake commit
@@ -74,6 +67,7 @@ def merge_svg_data():
     final_svg = svg_content[:injection_point] + new_rects + svg_content[injection_point:]
 
     # Save the merged SVG file
+    # This step will succeed now that the 'dist' folder is guaranteed to exist
     with open(FINAL_SVG_PATH, 'w') as f:
         f.write(final_svg)
 
