@@ -11,6 +11,7 @@ What I do
 ### My Tools 
 ###
 
+
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
   <img width="12" />
@@ -42,7 +43,13 @@ What I do
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="30" alt="tailwindcss logo"  />
 </div>
+###
 
+<br clear="both">
+
+<img src="https://raw.githubusercontent.com/ShivHanda/ShivHanda/output/snake.svg" alt="Snake animation" />
+
+###
 
 <!--
 **ShivHanda/ShivHanda** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
