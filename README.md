@@ -47,7 +47,7 @@ a Hobby Dev who builds stuff because they should exist (or because I'm bored).<b
 * **F1:** Waiting for Ferrari to stop hurting me. 🏎️💨
 
 
-> *everything you've seen so far... was part of Aizen's plan.*
+> **Everything you've seen so far... was part of Aizen's plan.**
 
 <!--
 **ShivHanda/ShivHanda** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
