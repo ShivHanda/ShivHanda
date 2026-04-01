@@ -1,8 +1,6 @@
 ## Yo There!👋
 I'm Shivansh Handa<br>
-a Hobby Dev who builds stuff because they should exist (or because I'm bored).<br><br>
-from the Mountains 🏔️<br>
-(Yes, the WiFi is surprisingly okay up here.)<br>
+a Hobby Dev who builds stuff because they should exist (or because I'm bored).<br>
 <br>
 
 ### What I’m messing with lately:
