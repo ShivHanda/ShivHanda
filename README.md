@@ -1,14 +1,15 @@
-## Hi there 👋
+## Yo There!👋
 I'm Shivansh Handa<br>
-Hailing from the Himalayas<br>
-On a quest to master every technology, one frontier at a time<br>
+a Hobby Dev who builds stuff because they should exist (or because I'm bored).<br><br>
+from the Mountains 🏔️<br>
+(Yes, the WiFi is surprisingly okay up here.)<br>
 <br>
 
-What I do
-* Data Science explorer working on real-world problems 🧠📊
-* Experimenting with AI, automation, and analytics ⚙️🤖
-* Always building, always learning 🔥
-### My Tools 
+### What I’m messing with lately:
+* **Python** 🐍 (My ride or die, mostly for automation and chaos)
+* **JS/TS** 📜 (Trying to make the web look "Legendary"—HIMYM style)
+
+### Other tools in my arsenal
 ###
 
 
@@ -43,7 +44,12 @@ What I do
 </div>
 
 
+### Side Quests 🚩
+* **Gym Progress:** Pushing the Planet down. 💪🏻
+* **F1:** Waiting for Ferrari to stop hurting me. 🏎️💨
 
+
+> *everything you've seen so far... was part of Aizen's plan.*
 
 <!--
 **ShivHanda/ShivHanda** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
